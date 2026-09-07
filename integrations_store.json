@@ -1,0 +1,98 @@
+{
+  "tavily": {
+    "name": "Tavily AI Search & Deep Research",
+    "base_url": "https://api.tavily.com",
+    "description": "Real-time AI web search, clean markdown extraction, and multi-source research.",
+    "status": "connected"
+  },
+  "coingecko": {
+    "name": "CoinGecko Crypto API",
+    "base_url": "https://api.coingecko.com/api/v3",
+    "description": "Public real-time cryptocurrency prices, market caps, and trading volume.",
+    "status": "connected"
+  },
+  "github": {
+    "name": "GitHub REST & GraphQL API",
+    "base_url": "https://api.github.com",
+    "description": "Review PRs, manage issues, commit files, and automate repo workflows.",
+    "status": "connected"
+  },
+  "vscode": {
+    "name": "VS Code Workspace Bridge",
+    "base_url": "http://127.0.0.1:45123/vscode",
+    "description": "Editor commands, workspace file edits, task dispatch, and diagnostics.",
+    "status": "connected"
+  },
+  "notion": {
+    "name": "Notion Workspace API",
+    "base_url": "https://api.notion.com/v1",
+    "description": "Read pages, query databases, append blocks, and draft structured docs.",
+    "status": "connected"
+  },
+  "slack": {
+    "name": "Slack Workspace Web API",
+    "base_url": "https://slack.com/api",
+    "description": "Send messages, search conversations, and manage channels.",
+    "status": "connected"
+  },
+  "gmail": {
+    "name": "Google Gmail API",
+    "base_url": "https://gmail.googleapis.com/gmail/v1/users/me",
+    "description": "Read, send, search, and organize emails with intelligent labels.",
+    "status": "connected"
+  },
+  "google_drive": {
+    "name": "Google Drive Storage API",
+    "base_url": "https://www.googleapis.com/drive/v3",
+    "description": "Find, create, upload, download, and manage files and folders.",
+    "status": "connected"
+  },
+  "google_sheets": {
+    "name": "Google Sheets API",
+    "base_url": "https://sheets.googleapis.com/v4/spreadsheets",
+    "description": "Read, write, format, append rows, and automate spreadsheet data.",
+    "status": "connected"
+  },
+  "google_calendar": {
+    "name": "Google Calendar API",
+    "base_url": "https://www.googleapis.com/calendar/v3",
+    "description": "Create events, check schedule availability, and manage calendars.",
+    "status": "connected"
+  },
+  "linear": {
+    "name": "Linear Issue Tracker API",
+    "base_url": "https://api.linear.app/graphql",
+    "description": "Create issues, sync cycles, and keep engineering product work moving.",
+    "status": "connected"
+  },
+  "figma": {
+    "name": "Figma Design API",
+    "base_url": "https://api.figma.com/v1",
+    "description": "Export assets, inspect design tokens, and sync UI specs with code.",
+    "status": "connected"
+  },
+  "trello": {
+    "name": "Trello Kanban API",
+    "base_url": "https://api.trello.com/1",
+    "description": "Manage boards, lists, cards, and automate project workflows.",
+    "status": "connected"
+  },
+  "whatsapp": {
+    "name": "WhatsApp Web Gateway",
+    "base_url": "https://graph.facebook.com/v20.0",
+    "description": "WhatsApp channel plugin for agent chats, message delivery, and media.",
+    "status": "connected"
+  },
+  "duckduckgo": {
+    "name": "DuckDuckGo Web Engine",
+    "base_url": "https://html.duckduckgo.com/html",
+    "description": "Live web querying and document discovery.",
+    "status": "connected"
+  },
+  "webhook_gateway": {
+    "name": "Universal Webhook Dispatcher",
+    "base_url": "https://httpbin.org/anything",
+    "description": "Outbound HTTP webhook relays for n8n, Zapier, Make, Slack, and Discord.",
+    "status": "connected"
+  }
+}
