@@ -54,6 +54,22 @@ async def omega_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         lines.extend(f"{item['name']}: {item['description']}" for item in catalog)
         await update.message.reply_text("\n".join(lines)[:4000])
         return
+
+    # Auto-detect image generation request passed via /omega (e.g. /omega gen photo of a car)
+    lower_text = text.lower()
+    if any(w in lower_text for w in ["photo", "image", "pic", "picture", "draw"]) or parts[1].lower() in ["gen", "generate"]:
+        clean_prompt = re.sub(r"^/omega\s*", "", text, flags=re.IGNORECASE)
+        clean_prompt = re.sub(r"^(gen|generate|make|draw|create)\s+(a\s+)?(photo|image|pic|picture)?(\s+of)?\s*", "", clean_prompt, flags=re.IGNORECASE).strip()
+        if not clean_prompt:
+            clean_prompt = "a cool sports car"
+        await update.message.reply_text(f"🎨 Generating image: *{clean_prompt}*...", parse_mode="Markdown")
+        await context.bot.send_chat_action(chat_id=update.effective_chat.id, action=ChatAction.UPLOAD_PHOTO)
+        _, media = await asyncio.to_thread(brain.execute_tool, update.effective_chat.id, "generate_image", {"prompt": clean_prompt})
+        for m in media:
+            with open(m["path"], "rb") as p:
+                await update.message.reply_photo(photo=p, caption=m.get("caption", ""))
+        return
+
     try:
         payload = json.loads(parts[2]) if len(parts) > 2 else {}
         if not isinstance(payload, dict):
@@ -1258,7 +1274,7 @@ async def start_telegram_bot():
         tg_app.add_handler(CommandHandler("excel", excel_command))
         tg_app.add_handler(CommandHandler("pdf", pdf_command))
         tg_app.add_handler(CommandHandler("model", model_command))
-        tg_app.add_handler(CommandHandler("image", image_command))
+        tg_app.add_handler(CommandHandler(["image", "photo", "pic", "gen", "generate", "draw"], image_command))
         tg_app.add_handler(CommandHandler("voice", voice_command))
         # OpenClaw Commands
         tg_app.add_handler(CommandHandler("openclaw", openclaw_command))
