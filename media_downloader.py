@@ -24,14 +24,8 @@ def ensure_package(pkg_name: str, import_name: Optional[str] = None) -> bool:
         __import__(mod_name)
         return True
     except ImportError:
-        logger.info(f"⚡ Package '{pkg_name}' missing. Autonomously installing via pip...")
-        try:
-            subprocess.run([sys.executable, "-m", "pip", "install", "--no-cache-dir", pkg_name], check=True, timeout=120)
-            logger.info(f"✅ Package '{pkg_name}' installed successfully!")
-            return True
-        except Exception as e:
-            logger.error(f"❌ Failed to auto-install '{pkg_name}': {e}")
-            return False
+        logger.warning("Missing optional media dependency: %s; install at deployment", pkg_name)
+        return False
 
 class UniversalMediaDownloader:
     """Universal high-speed video/audio downloader with auto-compression for Telegram."""
@@ -79,8 +73,25 @@ class UniversalMediaDownloader:
         outtmpl = os.path.join(self.temp_dir, "%(title).40s_%(id)s.%(ext)s")
         ffmpeg_exe = self._get_ffmpeg_path()
 
+        common_opts = {
+            "quiet": True,
+            "no_warnings": True,
+            "max_filesize": 48 * 1024 * 1024,
+            "noplaylist": True,
+            "extractor_args": {
+                "youtube": {
+                    "player_client": ["android", "ios", "web"],
+                    "player_skip": ["webpage", "configs"]
+                }
+            },
+            "http_headers": {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            }
+        }
+
         if format_type.lower() == "audio":
             ydl_opts = {
+                **common_opts,
                 "format": "bestaudio/best",
                 "outtmpl": outtmpl,
                 "postprocessors": [{
@@ -88,21 +99,14 @@ class UniversalMediaDownloader:
                     "preferredcodec": "mp3",
                     "preferredquality": "192",
                 }] if ffmpeg_exe else [],
-                "quiet": True,
-                "no_warnings": True,
-                "max_filesize": 48 * 1024 * 1024,
-                "noplaylist": True,
             }
         else:
             # Video: target MP4 format, progressive or combined, max 48MB
             ydl_opts = {
+                **common_opts,
                 "format": "bestvideo[ext=mp4][filesize<40M]+bestaudio[ext=m4a]/best[ext=mp4][filesize<48M]/best[filesize<48M]/best",
                 "outtmpl": outtmpl,
-                "quiet": True,
-                "no_warnings": True,
-                "max_filesize": 48 * 1024 * 1024,
                 "merge_output_format": "mp4",
-                "noplaylist": True,
             }
 
         if ffmpeg_exe:

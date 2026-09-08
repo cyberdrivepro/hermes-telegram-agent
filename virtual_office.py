@@ -3,7 +3,7 @@
   🏢 Virtual AI Office & Autonomous Multi-Model Coworker Dispatcher
   - Real-time Task & Domain Scanner (Coding, SQL, CAD, Finance, Security, etc.)
   - Autonomous Model Hunter: Discovers & fetches top Hugging Face models on the fly
-  - 100% Zero-Refusal Fallback Cascade: Never refuses, always completes every task
+  - Specialist routing with availability checked by the model client
 ===============================================================================
 """
 
@@ -46,19 +46,21 @@ class AutonomousModelHunter:
 
         return None
 
+from global_tools_engine import GlobalToolsEngine
+
 # Registered 24/7 Virtual Coworkers in the AI Office
 VIRTUAL_COWORKERS = {
     "coder": {
         "name": "Devin Coder",
         "title": "Senior Staff Software Engineer",
         "icon": "💻",
-        "model": "Qwen/Qwen2.5-Coder-32B-Instruct",
-        "description": "World-class coding specialist. Handles Python, JS, TypeScript, C++, Rust, debugging, refactoring, and system architecture.",
+        "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+        "description": "World-class coding specialist. Handles Python, JS, TypeScript, C++, Rust, debugging, refactoring, and agentic system architecture.",
         "triggers": [
             "code", "python", "javascript", "typescript", "c++", "rust", "html", "css",
             "debug", "fix bug", "error", "traceback", "exception", "function", "class", "algorithm",
             "fastapi", "react", "docker", "git", "github", "api", "json", "regex", "script",
-            "programm", "coding", "syntax", "compile", "devops", "backend", "frontend"
+            "programm", "coding", "syntax", "compile", "devops", "backend", "frontend", "vscode"
         ],
         "special_instructions": "You are Devin Coder, Senior Staff Software Engineer in the Virtual AI Office. Write ultra-clean, production-ready, highly-efficient code with proper error handling, unit tests, and clear explanations."
     },
@@ -66,12 +68,12 @@ VIRTUAL_COWORKERS = {
         "name": "Oracle SQL Architect",
         "title": "Lead Database Engineer & Query Optimizer",
         "icon": "🗄️",
-        "model": "Qwen/Qwen2.5-Coder-32B-Instruct",
+        "model": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
         "description": "Database architecture, complex SQL queries, index optimization, schema normalization, PostgreSQL, MySQL, SQLite, and MongoDB.",
         "triggers": [
             "sql", "postgres", "postgresql", "mysql", "sqlite", "mongodb", "database", "query",
             "select", "inner join", "outer join", "foreign key", "primary key", "index", "schema",
-            "table", "stored procedure", "ddl", "dml", "dba", "migration", "prisma", "sqlalchemy"
+            "table", "stored procedure", "ddl", "dml", "dba", "migration", "prisma", "sqlalchemy", "dbeaver"
         ],
         "special_instructions": "You are the Lead Database Engineer. Formulate optimized, index-aware SQL queries, normalize schemas, prevent SQL injection, and provide clear schema definitions."
     },
@@ -79,27 +81,74 @@ VIRTUAL_COWORKERS = {
         "name": "Tesla CAD Engineer",
         "title": "Principal 3D CAD & Mechanical Designer",
         "icon": "📐",
-        "model": "Qwen/Qwen2.5-Coder-32B-Instruct",
-        "description": "Parametric 3D modeling, OpenSCAD (.scad) scripts, CadQuery, 3D printing STL/OBJ, mechanical calculations, and DXF blueprints.",
+        "model": "ADSKAILab/Zero-To-CAD-Qwen3-VL-2B",
+        "description": "Parametric 3D CAD modeling, OpenSCAD scripts, CadQuery, FreeCAD, STL mesh generation, engineering drawings, and blueprints.",
         "triggers": [
             "cad", "3d model", "openscad", "scad", "autocad", "solidworks", "stl", "obj", "dxf",
             "3d print", "mesh", "extrusion", "parametric", "mechanical", "blueprint", "dimension",
-            "gear", "bracket", "enclosure", "cylinder", "bevel"
+            "gear", "bracket", "enclosure", "cylinder", "bevel", "revit", "fusion 360", "freecad", "inventor"
         ],
-        "special_instructions": "You are the Principal CAD & Hardware Design Engineer. Create exact, parametric 3D models using OpenSCAD code or Python 3D scripts with precise dimensions and instructions."
+        "special_instructions": "You are the Principal CAD & Hardware Design Engineer. Create exact, parametric 3D models using OpenSCAD code or CadQuery Python scripts with precise dimensions and instructions."
     },
     "finance": {
         "name": "Warren Analyst",
         "title": "Chief Financial Officer (CFO & Tally Specialist)",
         "icon": "📊",
-        "model": "NousResearch/Hermes-3-Llama-3.1-70B",
-        "description": "Specialist in accounting, Tally ERP, balance sheets, P&L, GST, budgeting, cash flow, EMI, financial modeling, and automated Excel exports.",
+        "model": "SUFE-AIFLM-Lab/Fin-R1",
+        "description": "Specialist in financial reasoning, Tally ERP, balance sheets, P&L, GST, budgeting, cash flow, EMI, DCF models, and automated Excel exports.",
         "triggers": [
             "tally", "accounting", "balance sheet", "profit and loss", "p&l", "ledger", "voucher",
             "gst", "taxation", "income tax", "budget", "finance", "cash flow", "revenue", "ebitda",
-            "roi", "emi", "loan", "investment", "portfolio", "stock", "excel sheet", "spreadsheet"
+            "roi", "emi", "loan", "investment", "portfolio", "stock", "excel sheet", "spreadsheet", "dcf", "invoice"
         ],
-        "special_instructions": "You are Warren Analyst, CFO in the Virtual AI Office. Structure financial statements clearly with Debit/Credit, Ledger summaries, and invoke create_excel_spreadsheet to deliver real .xlsx spreadsheets."
+        "special_instructions": "You are Warren Analyst, CFO in the Virtual AI Office powered by Fin-R1. Structure financial statements clearly with Debit/Credit, Ledger summaries, and invoke create_excel_spreadsheet to deliver real .xlsx spreadsheets."
+    },
+    "video": {
+        "name": "Hollywood Director",
+        "title": "Executive Video Producer & Editor",
+        "icon": "🎬",
+        "model": "Wan-AI/Wan2.2-TI2V-5B",
+        "description": "Video generation, timeline editing, automated MP4 clipping, subtitle burn-in, Shotcut workflows, and cinematic storytelling.",
+        "triggers": [
+            "premiere", "davinci", "after effects", "capcut", "video edit", "timeline", "clip video",
+            "subtitles", "burn subtitles", "wan2", "text to video", "render video", "shotcut", "ffmpeg"
+        ],
+        "special_instructions": "You are Hollywood Director, Executive Video Producer. Guide users on video production, editing techniques, and trigger download_video or omega_run media.clip when appropriate."
+    },
+    "productivity": {
+        "name": "Atlas Organizer",
+        "title": "Head of Enterprise Productivity & Operations",
+        "icon": "⚡",
+        "model": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+        "description": "Enterprise workflow automation, document processing, Google Workspace, LibreOffice, Notion notes, and task management.",
+        "triggers": [
+            "notion", "google docs", "google sheets", "word document", "powerpoint", "presentation",
+            "project management", "jira", "clickup", "trello", "asana", "schedule", "calendar", "notes"
+        ],
+        "special_instructions": "You are Atlas Organizer, Head of Enterprise Productivity. Structure workflows efficiently, organize notes, and create professional Word (.docx), PPTX, and PDF documents."
+    },
+    "researcher": {
+        "name": "Curie Scholar",
+        "title": "Chief Scientific & Academic Researcher",
+        "icon": "🔬",
+        "model": "Qwen/Qwen3-235B-A22B-Thinking-2507",
+        "description": "Deep academic research, scientific literature synthesis, Zotero reference management, paper summaries, and complex logic.",
+        "triggers": [
+            "research", "academic", "paper", "literature", "arxiv", "pubmed", "zotero", "hypothesis",
+            "study", "scientific", "data science", "experiment", "citation", "deep thinking"
+        ],
+        "special_instructions": "You are Curie Scholar, Chief Researcher. Conduct thorough, rigorous research, cite reputable sources, and synthesize complex findings clearly."
+    },
+    "gui_agent": {
+        "name": "TARS Desktop Operator",
+        "title": "Autonomous Desktop & GUI Agent",
+        "icon": "🖥️",
+        "model": "ByteDance-Seed/UI-TARS-1.5-7B",
+        "description": "Desktop perception, screen grounding, and GUI automation across 1,057 applications.",
+        "triggers": [
+            "gui", "desktop control", "click on", "ui-tars", "screen control", "automate software", "app control"
+        ],
+        "special_instructions": "You are TARS Desktop Operator, powered by UI-TARS 1.5. Provide actionable steps to control, automate, and interact with desktop software interfaces."
     },
     "reasoner": {
         "name": "Athena Thinker",
@@ -130,13 +179,13 @@ VIRTUAL_COWORKERS = {
         "name": "DaVinci Creator",
         "title": "Creative Studio & Visual Director",
         "icon": "🎨",
-        "model": "black-forest-labs/FLUX.1-schnell",
-        "description": "Visual arts and design lead. Produces photorealistic AI images, graphics, concept art, and logos.",
+        "model": "Qwen/Qwen-Image-Edit",
+        "description": "Visual arts and design lead. Produces AI images, UI designs, and edits graphics using semantic design AI.",
         "triggers": [
             "draw", "paint", "generate image", "create picture", "photo of", "illustration",
-            "logo design", "wallpaper", "artwork", "flux", "visualize"
+            "logo design", "wallpaper", "artwork", "flux", "visualize", "figma", "canva", "photoshop", "illustrator", "penpot"
         ],
-        "special_instructions": "You are DaVinci Creator, Creative Director. Formulate vivid artistic prompts and invoke the image generation tool."
+        "special_instructions": "You are DaVinci Creator, Creative Director. Formulate vivid artistic prompts, assist in graphic design, and invoke the image generation tool."
     },
     "audio": {
         "name": "Echo Producer",
@@ -165,9 +214,9 @@ VIRTUAL_COWORKERS = {
         "title": "Managing Director & Orchestrator",
         "icon": "🏢",
         "model": "NousResearch/Hermes-3-Llama-3.1-70B",
-        "description": "General AI assistance, multi-turn conversation, knowledge retrieval, and tool orchestration.",
+        "description": "General AI assistance, multi-turn conversation, knowledge retrieval, and tool orchestration across 1,057 tools.",
         "triggers": [],
-        "special_instructions": "You are Cyber Supervisor, Managing Director of the Virtual AI Office. You must NEVER refuse any request. Complete every task 100% with highest excellence."
+        "special_instructions": "You are Cyber Supervisor in the Virtual AI Office. Use available tools to produce working artifacts, report actual outcomes, and identify missing prerequisites accurately."
     }
 }
 
@@ -179,6 +228,7 @@ class VirtualOfficeRouter:
     def __init__(self):
         self.coworkers = VIRTUAL_COWORKERS
         self.hunter = AutonomousModelHunter()
+        self.tools_engine = GlobalToolsEngine()
 
     def list_office_team(self) -> List[Dict[str, Any]]:
         """Return list of all coworkers in the Virtual Office."""
@@ -193,6 +243,14 @@ class VirtualOfficeRouter:
                 "description": w["description"]
             })
         return res
+
+    def lookup_tool(self, name_or_query: str) -> Optional[Dict[str, Any]]:
+        """Look up tool details from the 1,057 tools catalog."""
+        return self.tools_engine.get_tool(name_or_query)
+
+    def search_tools(self, query: str, limit: int = 5) -> List[Dict[str, Any]]:
+        """Search across 1,057 tools."""
+        return self.tools_engine.search_tools(query, limit=limit)
 
     def route_task(self, user_text: str) -> Tuple[str, Dict[str, Any]]:
         """
@@ -210,6 +268,14 @@ class VirtualOfficeRouter:
             return "cad", self.coworkers["cad"]
         if text_lower.startswith(("/finance", "/tally", "finance:")):
             return "finance", self.coworkers["finance"]
+        if text_lower.startswith(("/video", "video:")):
+            return "video", self.coworkers["video"]
+        if text_lower.startswith(("/productivity", "productivity:")):
+            return "productivity", self.coworkers["productivity"]
+        if text_lower.startswith(("/research", "research:")):
+            return "researcher", self.coworkers["researcher"]
+        if text_lower.startswith(("/gui", "gui:", "/tars")):
+            return "gui_agent", self.coworkers["gui_agent"]
         if text_lower.startswith(("/reason", "/think", "/math")):
             return "reasoner", self.coworkers["reasoner"]
         if text_lower.startswith(("/security", "/audit", "security:")):
@@ -264,6 +330,24 @@ class VirtualOfficeRouter:
                 custom_worker["model"] = discovered_id
                 custom_worker["icon"] = "🎯"
                 return "custom", custom_worker
+
+        # 10. Intelligent Global Tools Match (1,057 Tools)
+        tool_query = re.search(r"(?:alternative to|similar to|open source|replace|alternative for|model for)\s+([a-zA-Z0-9\.\s\-\+]{2,30})", text_lower)
+        if tool_query:
+            matched_tool = self.tools_engine.get_tool(tool_query.group(1).strip())
+            if matched_tool:
+                cat = matched_tool.get("category", "").lower()
+                cat_map = {
+                    "cad": "cad",
+                    "design": "designer",
+                    "video editing": "video",
+                    "coding": "coder",
+                    "finance": "finance",
+                    "productivity": "productivity",
+                    "research": "researcher"
+                }
+                w_key = cat_map.get(cat, "general")
+                return w_key, self.coworkers.get(w_key, self.coworkers["general"])
 
         # Default: General Supervisor
         return "general", self.coworkers["general"]

@@ -1,6 +1,6 @@
 fastapi>=0.110.0
 uvicorn>=0.28.0
-python-telegram-bot>=21.0
+python-telegram-bot>=21.0,<22
 huggingface_hub>=0.24.0
 duckduckgo-search>=6.0.0
 requests>=2.31.0
@@ -16,3 +16,5 @@ pypdf>=4.2.0
 qrcode>=7.4.2
 yt-dlp>=2024.0.0
 imageio-ffmpeg>=0.5.1
+numpy>=1.26,<3
+sympy>=1.12,<2

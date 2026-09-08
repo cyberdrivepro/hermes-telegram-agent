@@ -11,14 +11,13 @@ import urllib.request
 import urllib.parse
 from typing import Dict, List, Any, Optional
 
-DEFAULT_TAVILY_KEY = "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"
-TAVILY_API_KEY = os.getenv("TAVILY_API_KEY", DEFAULT_TAVILY_KEY).strip()
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY", "").strip()
 TAVILY_BASE_URL = "https://api.tavily.com"
 
 
 class TavilyEngine:
     def __init__(self, api_key: Optional[str] = None):
-        self.api_key = api_key or os.getenv("TAVILY_API_KEY", DEFAULT_TAVILY_KEY).strip()
+        self.api_key = api_key or os.getenv("TAVILY_API_KEY", "").strip()
 
     def search(
         self,
@@ -28,6 +27,8 @@ class TavilyEngine:
         include_answer: bool = True
     ) -> Dict[str, Any]:
         """Execute Tavily real-time web search with AI summary answer."""
+        if not self.api_key:
+            return {"success": False, "error": "Set TAVILY_API_KEY to enable live search", "results": []}
         url = f"{TAVILY_BASE_URL}/search"
         payload = {
             "api_key": self.api_key,
@@ -65,6 +66,8 @@ class TavilyEngine:
 
     def extract(self, urls: List[str]) -> Dict[str, Any]:
         """Extract clean markdown content from given URLs without paywalls or bot blockers."""
+        if not self.api_key:
+            return {"success": False, "error": "Set TAVILY_API_KEY to enable extraction", "results": []}
         url = f"{TAVILY_BASE_URL}/extract"
         payload = {
             "api_key": self.api_key,
@@ -100,7 +103,7 @@ class TavilyEngine:
         if answer:
             out.append(f"🧠 **AI Research Synthesis:**\n{answer}\n")
 
-        out.append("📚 **Top Verified Sources & Key Findings:**")
+        out.append("📚 **Retrieved Sources & Key Findings:**")
         for i, r in enumerate(results, 1):
             out.append(f"{i}. [{r.get('title')}]({r.get('url')})\n   {r.get('content', '')[:250]}...")
 

@@ -12,7 +12,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+RUN useradd --create-home --uid 10001 appuser && chown appuser:appuser /app
+COPY --chown=appuser:appuser . .
+USER appuser
 
 # Default port is 7860, but Render uses 10000 or $PORT
 EXPOSE 7860 10000

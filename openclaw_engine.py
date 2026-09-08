@@ -12,6 +12,10 @@ import time
 import re
 import datetime
 import subprocess
+import ast
+import hashlib
+from autonomous_runner import AutonomousRunner
+from self_learner import validate_memory
 import urllib.request
 import urllib.parse
 from typing import Dict, List, Any, Optional, Tuple
@@ -140,6 +144,7 @@ class OpenClawWorkshop:
 
         self.skills: Dict[str, OpenClawSkill] = {}
         self.integrations: Dict[str, Dict[str, Any]] = {}
+        self.code_runner = AutonomousRunner()
 
         self._load_integrations()
         self._load_skills()
@@ -410,38 +415,15 @@ result = f"✅ Webhook delivered successfully! HTTP Status: {status}\\nResponse 
         params = params or {}
 
         if skill.code:
-            try:
-                # Safe execution scope for Python code skills
-                import inspect
-                local_scope = {"params": params, "time": time, "datetime": datetime, "json": json}
-                exec(skill.code, {"__builtins__": __builtins__}, local_scope)
-
-                func = local_scope.get("execute") or local_scope.get("run")
-                if func and callable(func):
-                    sig = inspect.signature(func)
-                    if len(sig.parameters) == 0:
-                        res = func()
-                    elif len(sig.parameters) == 1:
-                        val = next(iter(params.values())) if params else ""
-                        res = func(val)
-                    else:
-                        matched_args = {k: v for k, v in params.items() if k in sig.parameters}
-                        res = func(**matched_args)
-                else:
-                    res = local_scope.get("result", "Skill executed successfully.")
-
-                if isinstance(res, (dict, list)):
-                    return json.dumps(res, indent=2), True
-                return str(res), True
-            except Exception as e:
-                return f"Error executing skill '{name}': {str(e)}", False
-        else:
-            guide = (
-                f"📋 **Executing OpenClaw Skill: {skill.title}**\n\n"
-                f"**Instructions:**\n{skill.instructions}\n\n"
-                f"**Provided Parameters:** {json.dumps(params, indent=2)}"
-            )
-            return guide, True
+            # Execute the manifest as data through the configured code runner.
+            # No in-process exec: a Python namespace is not an isolation boundary.
+            wrapper = "import json, inspect, time, datetime\nparams = json.loads(" + repr(json.dumps(params)) + ")\n" + skill.code
+            wrapper += "\n_fn = globals().get('execute') or globals().get('run')\n"
+            wrapper += "if callable(_fn):\n    _sig = inspect.signature(_fn)\n    _args = {k:v for k,v in params.items() if k in _sig.parameters}\n    result = _fn(**_args)\n"
+            wrapper += "print(json.dumps(globals().get('result', None), default=str))\n"
+            result = self.code_runner.execute_with_auto_heal(wrapper)
+            return (result.get("stdout") or str(result.get("error", "No result"))), bool(result.get("success"))
+        return (f"Workflow guidance for {skill.title} (not executed):\n{skill.instructions}\nParameters: {json.dumps(params)}", True)
 
     # -------------------------------------------------------------------------
     # Universal Integrations Gateway (REST APIs & Webhooks)
@@ -676,70 +658,36 @@ class ClawHubRegistry:
         results = []
         for pkg_id, meta in self.indexed_packages.items():
             if not q or q in pkg_id.lower() or q in meta["title"].lower() or q in meta["description"].lower() or any(q in c.lower() for c in meta.get("categories", [])):
-                results.append({"package": pkg_id, **meta})
+                results.append({"package": pkg_id, "source": "bundled_catalog", **meta})
                 if len(results) >= limit:
                     break
         return results
 
     def install(self, package_name: str, global_install: bool = True) -> Tuple[bool, str]:
-        """Installs a skill or bundle package from ClawHub."""
-        clean_pkg = package_name.strip()
-        meta = self.indexed_packages.get(clean_pkg)
-        if not meta:
-            # Check for partial match or custom package name
-            for k, v in self.indexed_packages.items():
-                if clean_pkg.lower() in k.lower() or clean_pkg.lower() in v["name"].lower():
-                    meta = v
-                    clean_pkg = k
-                    break
-
-        if not meta:
-            # Dynamic installation fallback
-            slug = re.sub(r"[^a-zA-Z0-9_-]", "_", clean_pkg.split("/")[-1].lower())
-            success, msg = self.workshop.create_skill(
-                name=slug,
-                title=slug.replace("_", " ").title(),
-                description=f"Community package {clean_pkg} installed from ClawHub.",
-                triggers=[slug],
-                instructions=f"Execute workflow for {clean_pkg} as specified in ClawHub manifest.",
-                author=clean_pkg.split("/")[0] if "/" in clean_pkg else "ClawHub Community"
-            )
-            scope = "global (~/.openclaw/skills)" if global_install else "local workspace"
-            return True, f"📦 Installed package `{clean_pkg}` ({scope})!\nRegistered as skill: `{slug}`"
-
-        skill_name = meta.get("name", "skill")
-        # Ensure it exists in workshop
-        if skill_name not in self.workshop.skills:
-            self.workshop.create_skill(
-                name=skill_name,
-                title=meta["title"],
-                description=meta["description"],
-                triggers=[skill_name],
-                instructions=f"Workflow for {meta['title']} ({clean_pkg}) installed via ClawHub.",
-                author=meta.get("author", "ClawHub")
-            )
-
-        scope = "global (~/.openclaw/skills)" if global_install else "local workspace"
-        return True, f"📦 Successfully installed `{clean_pkg}` ({scope})!\nTitle: *{meta['title']}*\nActive Skill: `{skill_name}`"
+        """Report the actual local catalog status; remote installation is unconfigured."""
+        clean = package_name.strip()
+        meta = self.indexed_packages.get(clean)
+        if meta and meta.get("name") in self.workshop.skills:
+            return True, f"Local workflow `{meta['name']}` is already available. No remote package was installed."
+        return False, "Remote ClawHub package acquisition is not configured. Supply a reviewed manifest through the skill workshop."
 
     def verify(self, skill_name: str) -> Dict[str, Any]:
-        """Verifies integrity and security scan for a skill."""
+        """Compute a content digest and syntax check; do not invent signatures or audits."""
         skill = self.workshop.get_skill(skill_name)
         if not skill:
-            return {"verified": False, "error": f"Skill '{skill_name}' not found."}
-        return {
-            "verified": True,
-            "skill": skill.name,
-            "title": skill.title,
-            "manifest_status": "signed_sha256_valid",
-            "security_audit": "passed",
-            "executable_sandbox": "crabbox_isolated" if skill.code else "workflow_only"
-        }
+            return {"verified": False, "error": "Skill not found"}
+        digest = hashlib.sha256(skill.to_markdown().encode()).hexdigest()
+        try:
+            if skill.code:
+                ast.parse(skill.code)
+        except SyntaxError as exc:
+            return {"verified": False, "sha256": digest, "syntax_valid": False, "error": str(exc)}
+        return {"verified": False, "skill": skill.name, "title": skill.title,
+                "sha256": digest, "syntax_valid": True, "manifest_status": "unsigned",
+                "security_audit": "not_performed", "executable_sandbox": "configured_runner_required" if skill.code else "workflow_only"}
 
     def update_all(self) -> str:
-        """Updates all installed skills to their latest ClawHub manifests."""
-        count = len(self.workshop.skills)
-        return f"🔄 Updated all {count} installed skills from ClawHub registry! All manifests verified."
+        return "No remote update provider is configured; installed skills were not changed."
 
 
 class SkillWorkshop:
@@ -751,7 +699,7 @@ class SkillWorkshop:
 
     def __init__(self, workshop: OpenClawWorkshop):
         self.workshop = workshop
-        self.mode = "auto"  # 'auto', 'propose', 'off'
+        self.mode = "propose"  # 'auto', 'propose', 'off'
         self.proposals_dir = os.path.join(self.workshop.base_dir, "proposals")
         os.makedirs(self.proposals_dir, exist_ok=True)
         self.proposals: Dict[str, Dict[str, Any]] = {}
@@ -895,35 +843,39 @@ class StandingOrdersEngine:
         active_integrations = len(workshop.integrations)
         pending_proposals = len([p for p in workshop.workshop_governance.list_proposals() if p.get("status") == "pending_review"])
 
+        memory_error = None
+        try:
+            with open(os.path.join(workshop.base_dir, "self_memory.json"), encoding="utf-8") as stream:
+                validate_memory(json.load(stream))
+        except FileNotFoundError:
+            memory_error = "memory_missing"
+        except (OSError, ValueError) as exc:
+            memory_error = type(exc).__name__
         return {
-            "status": "healthy",
-            "heartbeat_time": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC"),
+            "status": "degraded" if memory_error else "healthy",
+            "heartbeat_time": datetime.datetime.now(datetime.timezone.utc).isoformat(),
             "skills_online": active_skills,
-            "integrations_online": active_integrations,
+            "integrations_configured": active_integrations,
+            "integrations_online": None,
             "pending_proposals": pending_proposals,
-            "system_recommendation": "All operational nodes green."
+            "memory_integrity": memory_error or "valid_json_schema",
+            "delivery_channels": "not_probed",
+            "system_recommendation": "Inspect memory integrity" if memory_error else "Local checks passed; external channels not probed"
         }
+
 
 
 class ManagedBrowserEngine:
     """Managed Chrome/Chromium Browser Automation Engine (Open, Click, Type, Inspect, Snapshot)."""
 
     def open(self, url: str) -> Dict[str, Any]:
-        """Navigates to URL and captures DOM title and preview."""
-        return {
-            "action": "browser_open",
-            "url": url,
-            "status": "loaded",
-            "title": f"Page Preview for {url}",
-            "snapshot": f"<html><body>Managed OpenClaw Browser snapshot for {url}</body></html>",
-            "status_code": 200
-        }
+        return {"action": "browser_open", "url": url, "status": "unavailable", "error": "Interactive browser backend is not configured; inspect supports static text fetch only"}
 
     def click(self, selector: str) -> Dict[str, Any]:
-        return {"action": "browser_click", "selector": selector, "status": "clicked"}
+        return {"action": "browser_click", "status": "unavailable", "error": "Interactive browser backend is not configured"}
 
     def type(self, selector: str, text: str) -> Dict[str, Any]:
-        return {"action": "browser_type", "selector": selector, "text": text, "status": "entered"}
+        return {"action": "browser_type", "status": "unavailable", "error": "Interactive browser backend is not configured"}
 
     def inspect(self, url: str) -> str:
         """Performs lightweight fetch & clean text extraction."""

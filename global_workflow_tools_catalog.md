@@ -1,0 +1,1098 @@
+# Global Workflow Tools Catalog
+
+> **Comprehensive 1,057 Tools across 8 Enterprise Domains**
+
+| Category | Count | Primary Use Cases |
+| :--- | :--- | :--- |
+| **CAD** | 127 | 2D drawings, 3D parts, architecture plans, mechanical models, dimensions, assemblies, technical drafting |
+| **Design** | 134 | UI/UX, posters, thumbnails, logos, social-media graphics, banners, presentations, wireframes, photo editing |
+| **Video Editing** | 126 | Cutting clips, timeline editing, transitions, captions, audio sync, color correction, effects, motion graphics |
+| **Coding** | 140 | Full-stack development, debugging, testing, Git, APIs, database code, containerization, terminals |
+| **Finance** | 131 | Financial models, budgeting, accounting sheets, expense analysis, invoices, cash-flow, dashboards |
+| **General** | 128 | Web browsing, basic computer use, file management, remote desktop, password managers, system utilities |
+| **Productivity** | 132 | Docs, spreadsheets, presentations, Notion notes, project management, email, scheduling, data entry |
+| **Research** | 139 | Web research, reading papers, literature search, bibliometrics, data science, citation management |
+
+---
+
+
+## CAD (127 Tools)
+
+1. **AutoCAD**
+2. **AutoCAD LT**
+3. **AutoCAD Civil 3D**
+4. **AutoCAD Map 3D**
+5. **AutoCAD Plant 3D**
+6. **AutoCAD Electrical**
+7. **AutoCAD Mechanical**
+8. **AutoCAD Architecture**
+9. **Autodesk Revit**
+10. **Autodesk Inventor**
+11. **Autodesk Fusion 360**
+12. **Autodesk Forma**
+13. **Autodesk InfraWorks**
+14. **Autodesk Navisworks**
+15. **Autodesk ReCap Pro**
+16. **Autodesk Robot Structural Analysis**
+17. **Autodesk Advance Steel**
+18. **Autodesk 3ds Max**
+19. **SOLIDWORKS**
+20. **SOLIDWORKS Electrical**
+21. **SOLIDWORKS Visualize**
+22. **Solid Edge**
+23. **CATIA**
+24. **Siemens NX**
+25. **PTC Creo**
+26. **Onshape**
+27. **FreeCAD**
+28. **LibreCAD**
+29. **QCAD**
+30. **DraftSight**
+31. **BricsCAD**
+32. **BricsCAD BIM**
+33. **ZWCAD**
+34. **GstarCAD**
+35. **nanoCAD**
+36. **ARCHICAD**
+37. **Vectorworks Architect**
+38. **Chief Architect**
+39. **SketchUp**
+40. **Rhino 3D**
+41. **Grasshopper**
+42. **OpenSCAD**
+43. **SolveSpace**
+44. **Shapr3D**
+45. **Plasticity**
+46. **Alibre Design**
+47. **TurboCAD**
+48. **IronCAD**
+49. **ANSYS SpaceClaim**
+50. **DesignSpark Mechanical**
+51. **KOMPAS-3D**
+52. **VariCAD**
+53. **Bentley MicroStation**
+54. **Bentley OpenBuildings Designer**
+55. **Bentley OpenRoads Designer**
+56. **Bentley OpenRail Designer**
+57. **Bentley OpenBridge Modeler**
+58. **Bentley STAAD.Pro**
+59. **Bentley RAM Structural System**
+60. **Tekla Structures**
+61. **Tekla Structural Designer**
+62. **ETABS**
+63. **SAP2000**
+64. **SAFE**
+65. **RFEM**
+66. **RSTAB**
+67. **SCIA Engineer**
+68. **ProtaStructure**
+69. **Allplan**
+70. **Edificius**
+71. **MagiCAD**
+72. **DDS-CAD**
+73. **Trimble Connect**
+74. **Revizto**
+75. **Solibri**
+76. **BIMcollab**
+77. **BIMvision**
+78. **BIMx**
+79. **Dalux**
+80. **Bluebeam Revu**
+81. **PointCab**
+82. **CloudCompare**
+83. **Leica Cyclone 3DR**
+84. **Trimble RealWorks**
+85. **Geomagic Design X**
+86. **PolyWorks Modeler**
+87. **MeshLab**
+88. **Autodesk Meshmixer**
+89. **Blender**
+90. **Houdini**
+91. **Tinkercad**
+92. **SelfCAD**
+93. **BlocksCAD**
+94. **Mastercam**
+95. **SolidCAM**
+96. **Fusion 360 Manufacturing**
+97. **hyperMILL**
+98. **Siemens NX CAM**
+99. **GibbsCAM**
+100. **Edgecam**
+101. **Autodesk FeatureCAM**
+102. **Autodesk PowerMill**
+103. **HSMWorks**
+104. **SprutCAM**
+105. **BobCAD-CAM**
+106. **CAMWorks**
+107. **OpenBuilds CAM**
+108. **KiCad**
+109. **Autodesk EAGLE**
+110. **Altium Designer**
+111. **Cadence OrCAD**
+112. **Cadence Allegro**
+113. **Siemens Xpedition**
+114. **PADS Professional**
+115. **EasyEDA**
+116. **CircuitMaker**
+117. **DipTrace**
+118. **Proteus Design Suite**
+119. **DesignSpark PCB**
+120. **LibrePCB**
+121. **gEDA**
+122. **Fritzing**
+123. **Esri CityEngine**
+124. **Planner 5D**
+125. **Floorplanner**
+126. **Sweet Home 3D**
+127. **RoomSketcher**
+
+## Design (134 Tools)
+
+1. **Adobe Photoshop**
+2. **Adobe Illustrator**
+3. **Adobe InDesign**
+4. **Adobe Lightroom**
+5. **Adobe Lightroom Classic**
+6. **Adobe XD**
+7. **Adobe Fresco**
+8. **Adobe Express**
+9. **Adobe Firefly**
+10. **Adobe Capture**
+11. **Adobe Acrobat Pro**
+12. **Figma**
+13. **FigJam**
+14. **Sketch**
+15. **Penpot**
+16. **Lunacy**
+17. **Framer**
+18. **Webflow**
+19. **Canva**
+20. **Affinity Designer**
+21. **Affinity Photo**
+22. **Affinity Publisher**
+23. **CorelDRAW**
+24. **Corel PHOTO-PAINT**
+25. **Corel Vector**
+26. **Inkscape**
+27. **GIMP**
+28. **Krita**
+29. **Paint.NET**
+30. **Photopea**
+31. **Pixlr**
+32. **Pixelmator Pro**
+33. **Acorn**
+34. **Procreate**
+35. **Clip Studio Paint**
+36. **MediBang Paint**
+37. **FireAlpaca**
+38. **ArtRage**
+39. **Rebelle**
+40. **Concepts**
+41. **Infinite Painter**
+42. **ibisPaint**
+43. **Autodesk SketchBook**
+44. **Vectr**
+45. **Boxy SVG**
+46. **SVG-Edit**
+47. **Linearity Curve**
+48. **Linearity Move**
+49. **VistaCreate**
+50. **Desygner**
+51. **Snappa**
+52. **PicMonkey**
+53. **BeFunky**
+54. **Fotor**
+55. **Picsart**
+56. **Kapwing**
+57. **Kittl**
+58. **Placeit**
+59. **Visme**
+60. **Piktochart**
+61. **Venngage**
+62. **Infogram**
+63. **Genially**
+64. **Prezi**
+65. **Pitch**
+66. **Beautiful.ai**
+67. **Gamma**
+68. **Miro**
+69. **Mural**
+70. **Whimsical**
+71. **Lucidchart**
+72. **diagrams.net**
+73. **Balsamiq**
+74. **Axure RP**
+75. **UXPin**
+76. **ProtoPie**
+77. **Principle**
+78. **Origami Studio**
+79. **Marvel**
+80. **Justinmind**
+81. **MockFlow**
+82. **Moqups**
+83. **Zeplin**
+84. **Avocode**
+85. **Abstract**
+86. **InVision**
+87. **Spline**
+88. **Rive**
+89. **Blender**
+90. **Cinema 4D**
+91. **Adobe Substance 3D Painter**
+92. **Adobe Substance 3D Designer**
+93. **Adobe Substance 3D Stager**
+94. **Adobe Substance 3D Sampler**
+95. **ZBrush**
+96. **Nomad Sculpt**
+97. **Marvelous Designer**
+98. **CLO 3D**
+99. **Daz Studio**
+100. **KeyShot**
+101. **V-Ray**
+102. **Corona Renderer**
+103. **Twinmotion**
+104. **Lumion**
+105. **Enscape**
+106. **SketchUp**
+107. **Rhino 3D**
+108. **Houdini**
+109. **TouchDesigner**
+110. **Cavalry**
+111. **LottieFiles**
+112. **Jitter**
+113. **FontLab**
+114. **Glyphs**
+115. **RoboFont**
+116. **BirdFont**
+117. **FontForge**
+118. **Fontself Maker**
+119. **Calligraphr**
+120. **Coolors**
+121. **Adobe Color**
+122. **Khroma**
+123. **Color Hunt**
+124. **Paletton**
+125. **Material Theme Builder**
+126. **Stark**
+127. **Contrast**
+128. **Noun Project**
+129. **Flaticon**
+130. **Icons8**
+131. **IconScout**
+132. **Streamline**
+133. **Font Awesome**
+134. **Google Fonts**
+
+## Video Editing (126 Tools)
+
+1. **Adobe Premiere Pro**
+2. **Adobe After Effects**
+3. **Adobe Media Encoder**
+4. **DaVinci Resolve**
+5. **Blackmagic Fusion**
+6. **Final Cut Pro**
+7. **Apple Motion**
+8. **Apple Compressor**
+9. **Avid Media Composer**
+10. **VEGAS Pro**
+11. **VEGAS Post**
+12. **CapCut**
+13. **Microsoft Clipchamp**
+14. **Camtasia**
+15. **Wondershare Filmora**
+16. **CyberLink PowerDirector**
+17. **Pinnacle Studio**
+18. **Corel VideoStudio Pro**
+19. **Lightworks**
+20. **Shotcut**
+21. **OpenShot**
+22. **Kdenlive**
+23. **Olive Video Editor**
+24. **VSDC Free Video Editor**
+25. **HitFilm**
+26. **Blender Video Sequence Editor**
+27. **iMovie**
+28. **LumaFusion**
+29. **VN Video Editor**
+30. **InShot**
+31. **KineMaster**
+32. **Alight Motion**
+33. **Adobe Premiere Rush**
+34. **Splice**
+35. **Videoleap**
+36. **GoPro Quik**
+37. **Descript**
+38. **Riverside**
+39. **VEED**
+40. **Kapwing**
+41. **Runway**
+42. **OpusClip**
+43. **Wisecut**
+44. **Gling**
+45. **Captions**
+46. **Submagic**
+47. **AutoPod**
+48. **Autocut**
+49. **Recut**
+50. **TimeBolt**
+51. **Munch**
+52. **Klap**
+53. **Vizard**
+54. **Quso.ai**
+55. **Headliner**
+56. **Zubtitle**
+57. **Simon Says**
+58. **Trint**
+59. **Sonix**
+60. **Happy Scribe**
+61. **Subtitle Edit**
+62. **Aegisub**
+63. **Subtitle Workshop**
+64. **Jubler**
+65. **FFmpeg**
+66. **HandBrake**
+67. **Shutter Encoder**
+68. **LosslessCut**
+69. **MKVToolNix**
+70. **Avidemux**
+71. **VirtualDub2**
+72. **Hybrid**
+73. **MeGUI**
+74. **MakeMKV**
+75. **OBS Studio**
+76. **Streamlabs Desktop**
+77. **vMix**
+78. **Wirecast**
+79. **XSplit Broadcaster**
+80. **Ecamm Live**
+81. **ScreenFlow**
+82. **Loom**
+83. **Snagit**
+84. **Bandicam**
+85. **ShareX**
+86. **NVIDIA Broadcast**
+87. **Adobe Audition**
+88. **Audacity**
+89. **REAPER**
+90. **Logic Pro**
+91. **GarageBand**
+92. **iZotope RX**
+93. **Fairlight**
+94. **Mocha Pro**
+95. **Boris FX Continuum**
+96. **Boris FX Sapphire**
+97. **Silhouette**
+98. **Foundry Nuke**
+99. **NukeX**
+100. **Nuke Studio**
+101. **Autodesk Flame**
+102. **Fusion Studio**
+103. **Natron**
+104. **Cavalry**
+105. **Rive**
+106. **Cinema 4D**
+107. **Houdini**
+108. **Blender**
+109. **Maxon Red Giant**
+110. **Universe**
+111. **Trapcode Suite**
+112. **Magic Bullet Suite**
+113. **Neat Video**
+114. **Topaz Video AI**
+115. **Video2X**
+116. **Flowframes**
+117. **Twixtor**
+118. **ReelSteady**
+119. **Gyroflow**
+120. **Frame.io**
+121. **Wipster**
+122. **Kollaborate**
+123. **Blackmagic Cloud**
+124. **iconik**
+125. **CatDV**
+126. **Kyno**
+
+## Coding (140 Tools)
+
+1. **Visual Studio Code**
+2. **Visual Studio**
+3. **IntelliJ IDEA**
+4. **PyCharm**
+5. **WebStorm**
+6. **PhpStorm**
+7. **CLion**
+8. **JetBrains Rider**
+9. **RubyMine**
+10. **DataGrip**
+11. **GoLand**
+12. **Android Studio**
+13. **Xcode**
+14. **Eclipse IDE**
+15. **Apache NetBeans**
+16. **Sublime Text**
+17. **Notepad++**
+18. **Vim**
+19. **Neovim**
+20. **GNU Emacs**
+21. **Zed**
+22. **Cursor**
+23. **Windsurf**
+24. **JetBrains Fleet**
+25. **Nova**
+26. **TextMate**
+27. **BBEdit**
+28. **Kate**
+29. **Geany**
+30. **Code::Blocks**
+31. **Dev-C++**
+32. **Qt Creator**
+33. **Arduino IDE**
+34. **PlatformIO**
+35. **Thonny**
+36. **Spyder**
+37. **RStudio**
+38. **JupyterLab**
+39. **Jupyter Notebook**
+40. **Google Colab**
+41. **Kaggle Notebooks**
+42. **Replit**
+43. **GitHub Codespaces**
+44. **Gitpod**
+45. **StackBlitz**
+46. **CodeSandbox**
+47. **Glitch**
+48. **Git**
+49. **GitHub Desktop**
+50. **GitKraken**
+51. **Sourcetree**
+52. **Fork**
+53. **Tower**
+54. **TortoiseGit**
+55. **SmartGit**
+56. **Lazygit**
+57. **GitHub CLI**
+58. **GitLab**
+59. **Bitbucket**
+60. **Azure DevOps**
+61. **Jenkins**
+62. **GitHub Actions**
+63. **GitLab CI/CD**
+64. **CircleCI**
+65. **Travis CI**
+66. **TeamCity**
+67. **Bamboo**
+68. **Buildkite**
+69. **Drone CI**
+70. **Argo CD**
+71. **Flux CD**
+72. **Docker Desktop**
+73. **Podman Desktop**
+74. **Rancher Desktop**
+75. **Kubernetes**
+76. **minikube**
+77. **kind**
+78. **Helm**
+79. **Terraform**
+80. **OpenTofu**
+81. **Ansible**
+82. **Pulumi**
+83. **Vagrant**
+84. **Packer**
+85. **Chef**
+86. **Puppet**
+87. **Salt**
+88. **Postman**
+89. **Insomnia**
+90. **Bruno**
+91. **Hoppscotch**
+92. **HTTPie**
+93. **curl**
+94. **wget**
+95. **SoapUI**
+96. **Swagger UI**
+97. **Swagger Editor**
+98. **Stoplight Studio**
+99. **RapidAPI Client**
+100. **DBeaver**
+101. **TablePlus**
+102. **pgAdmin**
+103. **MySQL Workbench**
+104. **SQL Server Management Studio**
+105. **Azure Data Studio**
+106. **MongoDB Compass**
+107. **RedisInsight**
+108. **Beekeeper Studio**
+109. **Adminer**
+110. **phpMyAdmin**
+111. **HeidiSQL**
+112. **Navicat**
+113. **dbForge Studio**
+114. **SQLiteStudio**
+115. **DB Browser for SQLite**
+116. **Windows Subsystem for Linux**
+117. **PowerShell**
+118. **Windows Terminal**
+119. **iTerm2**
+120. **Warp Terminal**
+121. **Alacritty**
+122. **Kitty**
+123. **tmux**
+124. **GNU Screen**
+125. **GDB**
+126. **LLDB**
+127. **Valgrind**
+128. **Chrome DevTools**
+129. **Firefox Developer Tools**
+130. **React Developer Tools**
+131. **Vue Devtools**
+132. **Redux DevTools**
+133. **ESLint**
+134. **Prettier**
+135. **SonarQube**
+136. **Sentry**
+137. **Datadog**
+138. **New Relic**
+139. **Grafana**
+140. **Prometheus**
+
+## Finance (131 Tools)
+
+1. **Microsoft Excel**
+2. **Google Sheets**
+3. **LibreOffice Calc**
+4. **Apple Numbers**
+5. **Zoho Sheet**
+6. **Airtable**
+7. **Smartsheet**
+8. **Power BI**
+9. **Tableau**
+10. **Looker**
+11. **Looker Studio**
+12. **Qlik Sense**
+13. **QlikView**
+14. **Domo**
+15. **Sisense**
+16. **MicroStrategy**
+17. **Alteryx**
+18. **KNIME**
+19. **RapidMiner**
+20. **SAP Analytics Cloud**
+21. **Oracle Analytics Cloud**
+22. **IBM Cognos Analytics**
+23. **TallyPrime**
+24. **QuickBooks Online**
+25. **QuickBooks Desktop**
+26. **Xero**
+27. **Zoho Books**
+28. **FreshBooks**
+29. **Wave Accounting**
+30. **Sage 50**
+31. **Sage Intacct**
+32. **NetSuite**
+33. **Odoo Accounting**
+34. **SAP S/4HANA Finance**
+35. **Oracle Fusion Cloud Financials**
+36. **Microsoft Dynamics 365 Finance**
+37. **Acumatica**
+38. **MYOB**
+39. **BUSY Accounting**
+40. **Marg ERP**
+41. **Vyapar**
+42. **GnuCash**
+43. **Manager.io**
+44. **Akaunting**
+45. **Kashoo**
+46. **ZipBooks**
+47. **Bench**
+48. **Expensify**
+49. **SAP Concur**
+50. **Zoho Expense**
+51. **Ramp**
+52. **Brex**
+53. **Airbase**
+54. **Spendesk**
+55. **Pleo**
+56. **Tipalti**
+57. **BILL**
+58. **Melio**
+59. **Stripe**
+60. **PayPal**
+61. **Razorpay**
+62. **Square**
+63. **Adyen**
+64. **Wise Business**
+65. **Deel**
+66. **Gusto**
+67. **ADP Workforce Now**
+68. **Paychex Flex**
+69. **Zoho Payroll**
+70. **Keka**
+71. **greytHR**
+72. **Bloomberg Terminal**
+73. **LSEG Workspace**
+74. **FactSet**
+75. **Morningstar Direct**
+76. **S&P Capital IQ Pro**
+77. **PitchBook**
+78. **Koyfin**
+79. **TradingView**
+80. **MetaTrader 4**
+81. **MetaTrader 5**
+82. **cTrader**
+83. **NinjaTrader**
+84. **thinkorswim**
+85. **Interactive Brokers Trader Workstation**
+86. **Zerodha Kite**
+87. **Upstox**
+88. **Groww**
+89. **Angel One**
+90. **ICICI Direct**
+91. **HDFC Securities**
+92. **Moneycontrol**
+93. **Screener.in**
+94. **Trendlyne**
+95. **Tickertape**
+96. **MarketsMojo**
+97. **TIKR**
+98. **Finviz**
+99. **Stock Rover**
+100. **Simply Wall St**
+101. **Portfolio Visualizer**
+102. **Quicken**
+103. **YNAB**
+104. **Monarch Money**
+105. **Empower Personal Dashboard**
+106. **PocketSmith**
+107. **Moneydance**
+108. **Rocket Money**
+109. **TurboTax**
+110. **H&R Block Tax Software**
+111. **TaxAct**
+112. **TaxSlayer**
+113. **FreeTaxUSA**
+114. **ClearTax**
+115. **Zoho Invoice**
+116. **Invoice Ninja**
+117. **Harvest**
+118. **Toggl Track**
+119. **Clockify**
+120. **Planful**
+121. **Anaplan**
+122. **Workday Adaptive Planning**
+123. **Oracle Hyperion**
+124. **Jedox**
+125. **Vena**
+126. **Cube**
+127. **Mosaic**
+128. **Pigment**
+129. **Prophix**
+130. **Float**
+131. **Fathom**
+
+## General (128 Tools)
+
+1. **Windows File Explorer**
+2. **macOS Finder**
+3. **Google Chrome**
+4. **Microsoft Edge**
+5. **Mozilla Firefox**
+6. **Safari**
+7. **Opera**
+8. **Brave**
+9. **Vivaldi**
+10. **Arc Browser**
+11. **Tor Browser**
+12. **7-Zip**
+13. **WinRAR**
+14. **PeaZip**
+15. **NanaZip**
+16. **Everything**
+17. **Listary**
+18. **Microsoft PowerToys**
+19. **ShareX**
+20. **Greenshot**
+21. **Lightshot**
+22. **Snipping Tool**
+23. **Flameshot**
+24. **VLC media player**
+25. **MPC-HC**
+26. **PotPlayer**
+27. **mpv**
+28. **Kodi**
+29. **Plex**
+30. **Spotify**
+31. **Apple Music**
+32. **foobar2000**
+33. **MusicBee**
+34. **Calibre**
+35. **SumatraPDF**
+36. **Adobe Acrobat Reader**
+37. **Foxit PDF Reader**
+38. **PDF-XChange Editor**
+39. **Okular**
+40. **Preview**
+41. **Windows Notepad**
+42. **Paint**
+43. **Paint.NET**
+44. **IrfanView**
+45. **XnView MP**
+46. **FastStone Image Viewer**
+47. **Windows Photos**
+48. **Google Drive for desktop**
+49. **Microsoft OneDrive**
+50. **Dropbox**
+51. **Box Drive**
+52. **MEGA Desktop App**
+53. **pCloud Drive**
+54. **Syncthing**
+55. **FreeFileSync**
+56. **TeraCopy**
+57. **WinSCP**
+58. **FileZilla**
+59. **Cyberduck**
+60. **PuTTY**
+61. **MobaXterm**
+62. **AnyDesk**
+63. **TeamViewer**
+64. **RustDesk**
+65. **Chrome Remote Desktop**
+66. **Microsoft Remote Desktop**
+67. **Parsec**
+68. **Tailscale**
+69. **ZeroTier**
+70. **OpenVPN Connect**
+71. **WireGuard**
+72. **1Password**
+73. **Bitwarden**
+74. **KeePass**
+75. **KeePassXC**
+76. **Dashlane**
+77. **LastPass**
+78. **Proton Pass**
+79. **Authy**
+80. **Microsoft Authenticator**
+81. **Google Authenticator**
+82. **CCleaner**
+83. **BleachBit**
+84. **Revo Uninstaller**
+85. **Geek Uninstaller**
+86. **Bulk Crap Uninstaller**
+87. **WizTree**
+88. **TreeSize Free**
+89. **WinDirStat**
+90. **CrystalDiskInfo**
+91. **CrystalDiskMark**
+92. **HWiNFO**
+93. **HWMonitor**
+94. **CPU-Z**
+95. **GPU-Z**
+96. **Speccy**
+97. **Process Explorer**
+98. **Process Monitor**
+99. **Autoruns**
+100. **TCPView**
+101. **RAMMap**
+102. **Task Manager**
+103. **Registry Editor**
+104. **Disk Management**
+105. **Device Manager**
+106. **Event Viewer**
+107. **Resource Monitor**
+108. **Rufus**
+109. **Ventoy**
+110. **balenaEtcher**
+111. **UNetbootin**
+112. **VirtualBox**
+113. **VMware Workstation**
+114. **Hyper-V Manager**
+115. **Docker Desktop**
+116. **Windows Subsystem for Linux**
+117. **LocalSend**
+118. **KDE Connect**
+119. **Microsoft Phone Link**
+120. **Quick Share**
+121. **Telegram Desktop**
+122. **WhatsApp Desktop**
+123. **Signal Desktop**
+124. **Discord**
+125. **Slack**
+126. **Zoom**
+127. **Microsoft Teams**
+128. **Google Meet**
+
+## Productivity (132 Tools)
+
+1. **Microsoft Word**
+2. **Microsoft Excel**
+3. **Microsoft PowerPoint**
+4. **Microsoft Outlook**
+5. **Microsoft OneNote**
+6. **Microsoft Teams**
+7. **Microsoft Loop**
+8. **Microsoft Planner**
+9. **Microsoft To Do**
+10. **Microsoft Project**
+11. **Microsoft Visio**
+12. **SharePoint**
+13. **Google Docs**
+14. **Google Sheets**
+15. **Google Slides**
+16. **Gmail**
+17. **Google Calendar**
+18. **Google Keep**
+19. **Google Tasks**
+20. **Google Drive**
+21. **Google Meet**
+22. **Google Chat**
+23. **Google Forms**
+24. **Google Sites**
+25. **Notion**
+26. **Evernote**
+27. **Obsidian**
+28. **Roam Research**
+29. **Logseq**
+30. **Anytype**
+31. **Joplin**
+32. **Standard Notes**
+33. **Simplenote**
+34. **Bear**
+35. **Craft**
+36. **Coda**
+37. **Slite**
+38. **Nuclino**
+39. **Confluence**
+40. **Dropbox Paper**
+41. **Zoho Writer**
+42. **Zoho Sheet**
+43. **Zoho Show**
+44. **LibreOffice Writer**
+45. **LibreOffice Calc**
+46. **LibreOffice Impress**
+47. **WPS Writer**
+48. **WPS Spreadsheets**
+49. **WPS Presentation**
+50. **ONLYOFFICE Docs**
+51. **ClickUp**
+52. **Asana**
+53. **Trello**
+54. **Monday.com**
+55. **Jira**
+56. **Linear**
+57. **Basecamp**
+58. **Wrike**
+59. **Smartsheet**
+60. **Airtable**
+61. **Todoist**
+62. **TickTick**
+63. **Things 3**
+64. **OmniFocus**
+65. **Amazing Marvin**
+66. **Sunsama**
+67. **Akiflow**
+68. **Motion**
+69. **Reclaim.ai**
+70. **Routine**
+71. **Morgen**
+72. **Fantastical**
+73. **Calendly**
+74. **Cal.com**
+75. **Clockwise**
+76. **Doodle**
+77. **TimeTree**
+78. **Structured**
+79. **Habitica**
+80. **Microsoft Whiteboard**
+81. **Miro**
+82. **Mural**
+83. **FigJam**
+84. **Whimsical**
+85. **Lucidchart**
+86. **diagrams.net**
+87. **XMind**
+88. **MindNode**
+89. **MindMeister**
+90. **Coggle**
+91. **SimpleMind**
+92. **Freeplane**
+93. **Readwise**
+94. **Readwise Reader**
+95. **Instapaper**
+96. **Pocket**
+97. **Raindrop.io**
+98. **Walling**
+99. **Milanote**
+100. **MyMind**
+101. **Capacities**
+102. **Tana**
+103. **Heptabase**
+104. **Supernotes**
+105. **Agenda**
+106. **Workflowy**
+107. **Dynalist**
+108. **Taskade**
+109. **MeisterTask**
+110. **Freedcamp**
+111. **Teamwork**
+112. **ProofHub**
+113. **Zoho Projects**
+114. **nTask**
+115. **Hive**
+116. **Height**
+117. **Shortcut**
+118. **YouTrack**
+119. **OpenProject**
+120. **Redmine**
+121. **Taiga**
+122. **GanttProject**
+123. **Toggl Track**
+124. **Clockify**
+125. **RescueTime**
+126. **Timely**
+127. **Harvest**
+128. **Focus To-Do**
+129. **Forest**
+130. **Freedom**
+131. **Cold Turkey**
+132. **Brain.fm**
+
+## Research (139 Tools)
+
+1. **Google Search**
+2. **Bing**
+3. **DuckDuckGo**
+4. **Brave Search**
+5. **Kagi**
+6. **Google Scholar**
+7. **Semantic Scholar**
+8. **Consensus**
+9. **Elicit**
+10. **Scite**
+11. **ResearchRabbit**
+12. **Connected Papers**
+13. **Litmaps**
+14. **Lens.org**
+15. **Dimensions**
+16. **OpenAlex**
+17. **Crossref**
+18. **PubMed**
+19. **Europe PMC**
+20. **arXiv**
+21. **bioRxiv**
+22. **medRxiv**
+23. **SSRN**
+24. **JSTOR**
+25. **ScienceDirect**
+26. **SpringerLink**
+27. **Wiley Online Library**
+28. **Taylor & Francis Online**
+29. **IEEE Xplore**
+30. **ACM Digital Library**
+31. **SAGE Journals**
+32. **Nature**
+33. **Science.org**
+34. **DOAJ**
+35. **CORE**
+36. **BASE**
+37. **WorldCat**
+38. **Internet Archive**
+39. **HathiTrust**
+40. **Project Gutenberg**
+41. **Google Books**
+42. **Open Library**
+43. **ProQuest**
+44. **EBSCOhost**
+45. **Web of Science**
+46. **Scopus**
+47. **Mendeley**
+48. **Zotero**
+49. **EndNote**
+50. **RefWorks**
+51. **Paperpile**
+52. **Citavi**
+53. **JabRef**
+54. **ReadCube Papers**
+55. **Qiqqa**
+56. **Sciwheel**
+57. **Notion**
+58. **Obsidian**
+59. **Roam Research**
+60. **Logseq**
+61. **OneNote**
+62. **Evernote**
+63. **Readwise Reader**
+64. **Pocket**
+65. **Instapaper**
+66. **Raindrop.io**
+67. **Hypothesis**
+68. **Diigo**
+69. **LiquidText**
+70. **MarginNote**
+71. **DEVONthink**
+72. **NVivo**
+73. **ATLAS.ti**
+74. **MAXQDA**
+75. **Dedoose**
+76. **QDA Miner**
+77. **Taguette**
+78. **Voyant Tools**
+79. **Gephi**
+80. **Cytoscape**
+81. **VOSviewer**
+82. **CiteSpace**
+83. **Bibliometrix**
+84. **Biblioshiny**
+85. **SPSS**
+86. **Stata**
+87. **SAS**
+88. **RStudio**
+89. **JASP**
+90. **jamovi**
+91. **PSPP**
+92. **MATLAB**
+93. **Mathematica**
+94. **Maple**
+95. **KNIME**
+96. **Orange**
+97. **RapidMiner**
+98. **JupyterLab**
+99. **Google Colab**
+100. **Kaggle Notebooks**
+101. **Wolfram Alpha**
+102. **Perplexity**
+103. **ChatGPT**
+104. **Claude**
+105. **Gemini**
+106. **NotebookLM**
+107. **Microsoft Copilot**
+108. **You.com**
+109. **Phind**
+110. **Poe**
+111. **SciSpace**
+112. **Scholarcy**
+113. **Paper Digest**
+114. **Explainpaper**
+115. **Unpaywall**
+116. **Open Knowledge Maps**
+117. **Inciteful**
+118. **Publish or Perish**
+119. **Zotero Connector**
+120. **Google Trends**
+121. **Similarweb**
+122. **Statista**
+123. **Our World in Data**
+124. **World Bank Data**
+125. **OECD Data**
+126. **IMF Data**
+127. **UN Data**
+128. **FRED**
+129. **Kaggle Datasets**
+130. **Data.gov**
+131. **Data Commons**
+132. **GitHub**
+133. **Stack Overflow**
+134. **MDN Web Docs**
+135. **Wikipedia**
+136. **Wayback Machine**
+137. **LexisNexis**
+138. **Westlaw**
+139. **HeinOnline**
