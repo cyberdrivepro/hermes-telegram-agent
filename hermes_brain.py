@@ -608,7 +608,7 @@ class HermesAgentBrain:
                     content = " ".join(text_parts)
                 groq_messages.append({"role": msg.get("role", "user"), "content": str(content)})
 
-            groq_models = ["openai/gpt-oss-120b", "groq/compound-mini", "qwen/qwen3.6-27b", "allam-2-7b"]
+            groq_models = ["allam-2-7b", "openai/gpt-oss-20b", "groq/compound-mini", "openai/gpt-oss-120b"]
             for g_model in groq_models:
                 try:
                     res = groq_client.chat.completions.create(
